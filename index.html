@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#1a0033" />
+  <meta name="theme-color" content="#0b001a" />
 
   <!-- Primary Meta -->
   <title>My Cat Died — A Staffman Collective Podcast</title>
-  <meta name="description" content="Hello, I am the Staffman. My Cat Died is a mental health podcast — a support and a journey. Join the collective." />
+  <meta name="description" content="Hello, I am the Staffman. My Cat Died is a mental health podcast — a journey of recovery, reflection, and support. Join the collective." />
   <meta name="author" content="The Staffman / Staffman Collective" />
   <meta name="keywords" content="My Cat Died, Staffman, Staffman Collective, mental health podcast, Detroit podcast, Sunday Ramble" />
   <meta name="robots" content="index, follow" />
@@ -15,14 +15,14 @@
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="My Cat Died — A Staffman Collective Podcast" />
-  <meta property="og:description" content="A mental health podcast by the Staffman. Urban Soul Recovery meets sci-fi grit." />
+  <meta property="og:description" content="A mental health podcast by the Staffman. Urban Soul Recovery meets sci-fi mythology." />
   <meta property="og:image" content="images/my-cat-died-logo.png" />
   <meta property="og:url" content="https://mycatdied.com" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="My Cat Died — A Staffman Collective Podcast" />
-  <meta name="twitter:description" content="Mental health, mic on, cat gone. Join the journey." />
+  <meta name="twitter:description" content="Mental health, mic on. Join the journey." />
   <meta name="twitter:image" content="images/my-cat-died-logo.png" />
 
   <!-- Favicons -->
@@ -42,12 +42,13 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "PodcastSeries",
+    "@type": "CreativeWork",
     "name": "My Cat Died",
+    "alternateName": "A Staffman Collective Podcast",
     "description": "A mental health podcast by the Staffman — a journey of recovery, reflection, and support.",
     "url": "https://mycatdied.com",
     "image": "images/my-cat-died-logo.png",
-    "author": {
+    "creator": {
       "@type": "Person",
       "name": "The Staffman"
     },
@@ -66,24 +67,26 @@
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- ============== NAVIGATION ============== -->
   <header class="nav" id="nav">
-    <div class="nav-inner">
+    <div class="container nav-inner">
       <a href="#hero" class="nav-brand" aria-label="My Cat Died home">
-        <img src="images/my-cat-died-logo.png" alt="My Cat Died logo" width="40" height="40" loading="lazy" />
+        <img src="images/my-cat-died-logo.png" alt="" width="36" height="36" loading="lazy" />
         <span class="nav-brand-text">MY CAT DIED</span>
       </a>
+
       <nav class="nav-links" aria-label="Primary">
-        <a href="#hero">Home</a>
         <a href="#listen">Listen</a>
         <a href="#mission">Mission</a>
         <a href="#collective">Collective</a>
         <a href="#contact">Submit</a>
       </nav>
+
       <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
         <span></span><span></span><span></span>
       </button>
     </div>
+
     <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
       <a href="#hero">Home</a>
       <a href="#listen">Listen</a>
@@ -95,34 +98,36 @@
 
   <main>
 
-    <!-- 1. HERO -->
+    <!-- ============== 1. HERO ============== -->
     <section class="hero" id="hero">
-      <div class="stars" aria-hidden="true"></div>
-      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-video-wrap" aria-hidden="true">
+        <video
+          class="hero-video"
+          src="videos/my-cat-died-space.mp4"
+          poster="images/my-cat-died-logo.png"
+          autoplay
+          loop
+          muted
+          playsinline
+          preload="metadata">
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-vignette"></div>
+      </div>
 
-      <div class="hero-inner">
+      <div class="hero-content">
+        <img
+          class="hero-logo"
+          src="images/my-cat-died-logo.png"
+          alt="My Cat Died logo"
+          width="120"
+          height="120"
+          loading="lazy" />
+
         <div class="hero-eyebrow">
           <span class="eyebrow-line"></span>
           <span>A Staffman Collective Podcast</span>
           <span class="eyebrow-line"></span>
-        </div>
-
-        <div class="hero-video-wrap">
-          <div class="hero-video-frame">
-            <video
-              class="hero-video"
-              src="images/my-cat-died-video.mp4"
-              autoplay
-              loop
-              muted
-              playsinline
-              preload="metadata"
-              aria-label="My Cat Died animated logo">
-            </video>
-            <div class="video-corners" aria-hidden="true">
-              <span></span><span></span><span></span><span></span>
-            </div>
-          </div>
         </div>
 
         <h1 class="hero-title">MY CAT DIED</h1>
@@ -132,51 +137,45 @@
           <a href="#listen" class="btn btn-gold">Listen Now</a>
           <a href="#collective" class="btn btn-ghost">Join the Journey</a>
         </div>
+      </div>
 
-        <div class="scroll-cue" aria-hidden="true">
-          <span>Scroll</span>
-          <span class="scroll-line"></span>
-        </div>
+      <div class="scroll-cue" aria-hidden="true">
+        <span>Scroll</span>
+        <span class="scroll-line"></span>
       </div>
     </section>
 
-    <!-- 2. FEATURED AUDIO -->
+    <!-- ============== 2. FEATURED AUDIO ============== -->
     <section class="listen" id="listen">
-      <div class="section-head">
-        <span class="section-kicker">Featured Episode</span>
-        <h2 class="section-title">Sunday Ramble</h2>
-        <p class="section-sub">Pull up a chair. This one's for the quiet afternoons.</p>
-      </div>
-
-      <div class="audio-frame">
-        <div class="audio-corners" aria-hidden="true">
-          <span></span><span></span><span></span><span></span>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Featured Episode</span>
+          <h2 class="section-title">Sunday Ramble</h2>
+          <p class="section-sub">Pull up a chair. This one's for the quiet afternoons.</p>
         </div>
-        <iframe
-          class="sc-embed"
-          title="Sunday Ramble by J. Staffman"
-          loading="lazy"
-          scrolling="no"
-          frameborder="no"
-          allow="autoplay"
-          src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/j-staffman/sunday-ramble&color=%23f4d35e&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
-        </iframe>
-        <p class="sc-credit">
-          <a href="https://soundcloud.com/j-staffman" target="_blank" rel="noopener">J. Staffman</a>
-          &middot;
-          <a href="https://soundcloud.com/j-staffman/sunday-ramble" target="_blank" rel="noopener">Sunday Ramble</a>
-        </p>
+
+        <div class="audio-frame reveal">
+          <iframe
+            class="sc-embed"
+            title="Sunday Ramble by J. Staffman"
+            loading="lazy"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/j-staffman/sunday-ramble&color=%23d4af37&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true">
+          </iframe>
+          <p class="sc-credit">
+            <a href="https://soundcloud.com/j-staffman" target="_blank" rel="noopener">J. Staffman</a>
+            <span class="sep">&middot;</span>
+            <a href="https://soundcloud.com/j-staffman/sunday-ramble" target="_blank" rel="noopener">Sunday Ramble</a>
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- 3. THE MISSION -->
+    <!-- ============== 3. MISSION ============== -->
     <section class="mission" id="mission">
-      <div class="mission-deco" aria-hidden="true">
-        <div class="deco-ring"></div>
-        <div class="deco-ring deco-ring-2"></div>
-      </div>
-
-      <div class="mission-inner">
+      <div class="container mission-inner reveal">
         <span class="mission-kicker">The Mission</span>
         <blockquote class="mission-quote">
           <span class="quote-mark" aria-hidden="true">&ldquo;</span>
@@ -190,19 +189,25 @@
       </div>
     </section>
 
-    <!-- 4. COLLECTIVE CTA -->
+    <!-- ============== 4. COLLECTIVE CTA ============== -->
     <section class="collective" id="collective">
-      <div class="collective-inner">
-        <div class="stamp-wrap">
-          <div class="stamp-orbit" aria-hidden="true"></div>
-          <img
-            src="images/staffman-collective-stamp.PNG"
-            alt="Staffman Collective certified seal"
-            class="stamp-img"
-            loading="lazy"
-            width="240"
-            height="240" />
-        </div>
+      <img
+        class="collective-watermark"
+        src="images/staffman-collective-stamp.PNG"
+        alt=""
+        loading="lazy"
+        width="600"
+        height="600"
+        aria-hidden="true" />
+
+      <div class="container collective-inner reveal">
+        <img
+          class="stamp-img"
+          src="images/staffman-collective-stamp.PNG"
+          alt="Staffman Collective certified seal"
+          width="180"
+          height="180"
+          loading="lazy" />
 
         <h2 class="collective-title">Join the Collective</h2>
         <p class="collective-text">
@@ -213,54 +218,57 @@
 
         <div class="collective-meta">
           <span>Certified by the Staffman Collective</span>
+          <span class="meta-sep">&middot;</span>
           <span>Est. Detroit</span>
         </div>
       </div>
     </section>
 
-    <!-- 5. SUBMIT / CONTACT -->
+    <!-- ============== 5. SUBMIT / CONTACT ============== -->
     <section class="submit" id="contact">
-      <div class="submit-head">
-        <span class="section-kicker">Topic Submission</span>
-        <h2 class="section-title">Send the Staffman a Thought</h2>
-        <p class="section-sub">A topic, a question, a story you want told. This is an open mic.</p>
+      <div class="container">
+        <div class="section-head reveal">
+          <span class="section-kicker">Topic Submission</span>
+          <h2 class="section-title">Send the Staffman a Thought</h2>
+          <p class="section-sub">A topic, a question, a story you want told. This is an open mic.</p>
+        </div>
+
+        <form
+          class="submit-form reveal"
+          action="https://formspree.io/f/mvzvblry"
+          method="POST"
+          novalidate>
+          <div class="field">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@domain.com" required />
+          </div>
+
+          <div class="field field-full">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="What's on your mind? What should the Staffman talk about?" required></textarea>
+          </div>
+
+          <input type="hidden" name="_subject" value="New topic submission — My Cat Died" />
+
+          <div class="field field-full form-actions">
+            <button type="submit" class="btn btn-gold btn-large">Submit</button>
+            <span class="form-note" id="formNote" aria-live="polite"></span>
+          </div>
+        </form>
       </div>
-
-      <form
-        class="submit-form"
-        action="https://formspree.io/f/mvzvblry"
-        method="POST"
-        novalidate>
-        <div class="field">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Jane Doe" required />
-        </div>
-
-        <div class="field">
-          <label for="email">Email</label>
-          <input type="email" id="email" name="email" placeholder="you@domain.com" required />
-        </div>
-
-        <div class="field field-full">
-          <label for="topic">Topic / Message</label>
-          <textarea id="topic" name="topic" rows="5" placeholder="What's on your mind? What should the Staffman talk about?" required></textarea>
-        </div>
-
-        <input type="hidden" name="_subject" value="New topic submission — My Cat Died" />
-
-        <div class="field field-full form-actions">
-          <button type="submit" class="btn btn-gold btn-large">Submit</button>
-          <span class="form-note" id="formNote" aria-live="polite"></span>
-        </div>
-      </form>
     </section>
   </main>
 
-  <!-- FOOTER -->
+  <!-- ============== FOOTER ============== -->
   <footer class="footer">
-    <div class="footer-inner">
+    <div class="container footer-inner">
       <div class="footer-brand">
-        <img src="images/my-cat-died-logo.png" alt="My Cat Died" loading="lazy" width="48" height="48" />
+        <img src="images/my-cat-died-logo.png" alt="My Cat Died" width="44" height="44" loading="lazy" />
         <div>
           <p class="footer-title">MY CAT DIED</p>
           <p class="footer-sub">A Staffman Collective production.</p>
@@ -268,7 +276,7 @@
       </div>
 
       <div class="footer-stamp">
-        <img src="images/staffman-collective-stamp.PNG" alt="Staffman Collective seal" loading="lazy" width="80" height="80" />
+        <img src="images/staffman-collective-stamp.PNG" alt="Staffman Collective seal" width="64" height="64" loading="lazy" />
         <span>Certified &middot; Detroit</span>
       </div>
 

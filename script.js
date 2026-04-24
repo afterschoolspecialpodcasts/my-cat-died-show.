@@ -1,22 +1,24 @@
-/* My Cat Died — interactions (Vanilla JS) */
+/* =================================================================
+   MY CAT DIED — Interactions (Vanilla JS only)
+   ================================================================= */
 (function () {
   'use strict';
 
-  // ---- Year ----
+  // ---------- Year stamp ----------
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // ---- Nav scroll state ----
+  // ---------- Nav: scrolled state ----------
   var nav = document.getElementById('nav');
-  var onScroll = function () {
+  function onScroll() {
     if (!nav) return;
     if (window.scrollY > 40) nav.classList.add('scrolled');
     else nav.classList.remove('scrolled');
-  };
+  }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // ---- Mobile menu ----
+  // ---------- Mobile menu toggle ----------
   var toggle = document.getElementById('navToggle');
   var menu = document.getElementById('mobileMenu');
 
@@ -40,44 +42,66 @@
       if (menu.classList.contains('open')) closeMenu();
       else openMenu();
     });
-    // Close on any link click
-    var mobileLinks = menu.querySelectorAll('a');
-    mobileLinks.forEach(function (a) {
+
+    // Close on link tap
+    menu.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', closeMenu);
     });
-    // Close on escape
+
+    // Close on Escape
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') closeMenu();
     });
-    // Close if viewport grows past mobile
+
+    // Close on resize past breakpoint
     window.addEventListener('resize', function () {
       if (window.innerWidth > 768) closeMenu();
     });
   }
 
-  // ---- Smooth scroll offset (compensate for fixed nav) ----
-  var anchors = document.querySelectorAll('a[href^="#"]');
-  anchors.forEach(function (a) {
+  // ---------- Smooth scroll with nav offset ----------
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
       if (!id || id === '#' || id.length < 2) return;
       var target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var navHeight = nav ? nav.offsetHeight : 0;
-      var top = target.getBoundingClientRect().top + window.scrollY - navHeight + 1;
+      var offset = nav ? nav.offsetHeight : 0;
+      var top = target.getBoundingClientRect().top + window.scrollY - offset + 1;
       window.scrollTo({ top: top, behavior: 'smooth' });
     });
   });
 
-  // ---- Form submit via fetch (Formspree) ----
+  // ---------- Reveal on scroll ----------
+  var reveals = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window && reveals.length) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    // Fallback: just show everything
+    reveals.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  // ---------- Form: async submit to Formspree ----------
   var form = document.querySelector('.submit-form');
   var note = document.getElementById('formNote');
 
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
-      if (note) { note.textContent = 'Sending…'; note.classList.remove('error'); }
+      if (note) {
+        note.textContent = 'Sending\u2026';
+        note.classList.remove('error');
+      }
 
       var data = new FormData(form);
       fetch(form.action, {
@@ -89,31 +113,36 @@
         if (res.ok) {
           form.reset();
           if (note) note.textContent = 'Thank you — your thought has been sent.';
-        } else {
-          res.json().then(function (d) {
-            if (note) {
-              note.textContent = (d && d.errors && d.errors.map(function (x) { return x.message; }).join(', ')) || 'Something went wrong. Try again.';
-              note.classList.add('error');
-            }
-          }).catch(function () {
-            if (note) { note.textContent = 'Something went wrong. Try again.'; note.classList.add('error'); }
-          });
+          return;
         }
+        return res.json().then(function (d) {
+          if (note) {
+            var msg = (d && d.errors && d.errors.map(function (x) { return x.message; }).join(', ')) ||
+                      'Something went wrong. Try again.';
+            note.textContent = msg;
+            note.classList.add('error');
+          }
+        });
       })
       .catch(function () {
-        if (note) { note.textContent = 'Network error. Please try again.'; note.classList.add('error'); }
+        if (note) {
+          note.textContent = 'Network error. Please try again.';
+          note.classList.add('error');
+        }
       });
     });
   }
 
-  // ---- Ensure video autoplay on mobile (iOS) ----
+  // ---------- Hero video: ensure autoplay on iOS ----------
   var heroVideo = document.querySelector('.hero-video');
   if (heroVideo) {
-    heroVideo.setAttribute('muted', '');
     heroVideo.muted = true;
-    var tryPlay = heroVideo.play();
-    if (tryPlay && typeof tryPlay.catch === 'function') {
-      tryPlay.catch(function () { /* autoplay blocked — video will remain on first frame */ });
+    heroVideo.setAttribute('muted', '');
+    var p = heroVideo.play();
+    if (p && typeof p.catch === 'function') {
+      p.catch(function () {
+        /* autoplay blocked — poster will show */
+      });
     }
   }
 })();
